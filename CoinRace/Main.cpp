@@ -1,5 +1,14 @@
 #include <iostream>
 
+enum class charmap { PUNTO, ARROBA, DOLLAR, MAX };
+enum class dificultad { FACIL = 1, NORMAL, DIFICIL };
 
-int dificultad;
-int tamaño = 5 * dificultad + rand() % (10 * dificultad - 5 * dificultad);
+void matriz(int numRows, int numColumns, char **map)
+{
+	map = new char *[numRows];
+	for (int i = 0; i < numRows; i++)
+	{
+		map[i] = new char[numColumns];
+	}
+};
+
