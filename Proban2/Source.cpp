@@ -1,13 +1,14 @@
 #include <iostream>
 //DECLARAR un puntero de puntero
 int **md;
-int numRows, numColumns;
+
 int dificultad;
 int tamanio = 5 * dificultad + rand() % (10 * dificultad - 5 * dificultad);
 
+
 //LEER el número de filas y columnas
-numRows = tamanio ;
-numColumns = tamanio;
+int numRows = tamanio, numColumns = tamanio;
+
 
 //PEDIR MEMORIA para un array de punteros
 //Tantos punteros como filas
