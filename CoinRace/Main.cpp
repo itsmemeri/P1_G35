@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Header.h"
 
 enum class charmap { PUNTO, ARROBA, DOLLAR, MAX };
 enum class dificultad { FACIL = 1, NORMAL, DIFICIL };
