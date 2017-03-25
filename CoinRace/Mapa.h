@@ -1,6 +1,6 @@
 #pragma once
 int Rows, Columns;
-char **map;
+char **mapa;
 
 enum class charmap { PUNTO, ARROBA, DOLLAR, MAX };
 enum class dificultad { FACIL = 1, NORMAL, DIFICIL };

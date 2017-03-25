@@ -15,26 +15,26 @@ Mapa::Mapa(dificultad A)
 {
 	Rows = 5 * static_cast<int>(A) + rand() % (10 * static_cast<int>(A) - 5 * static_cast<int>(A));
 	Columns = 5 * static_cast<int>(A) + rand() % (10 * static_cast<int>(A) - 5 * static_cast<int>(A));
-	matriz(Rows, Columns, map);
+	matriz(Rows, Columns, mapa);
 	//Rellenar el array con puntos (mapa vacío)
 	for (int i = 0; i < Rows; i++)
 	{
 		for (int j = 0; j < Columns; j++)
 		{
-			map[i][j] = '.';
+			mapa[i][j] = '.';
 		}
 	}
 }
 //Función para cambiar el contenido de las celdas
-void chichinabo(int x, int y, char Zelda)
+void ChangCont(int x, int y, char Zelda)
 {
-	map[x][y] = Zelda;
+	mapa[x][y] = Zelda;
 }
 void printMap() {
 	for (int i = 0; i < Rows; i++)
 	{
 		for (int j = 0; j < Columns; j++) {
-			std::cout << map[i][j];
+			std::cout << mapa[i][j];
 		}
 		std::cout << std::endl;
 	}
@@ -43,5 +43,5 @@ void printMap() {
 
 Mapa::~Mapa()
 {
-	delete[]map;
+	delete[]mapa;
 }

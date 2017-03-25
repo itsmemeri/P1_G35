@@ -1,15 +1,15 @@
 #pragma once
-class Map
+class Mapa
 {
-	Map(dificultad A)
+	Mapa(dificultad A)
 	{
 	}
-	void chichinabo(int x, int y, char Zelda)
+	void ChangCont(int x, int y, char Zelda)
 	{
 	}
 
 
-	~Map()
+	~Mapa()
 	{
 	}
 };
