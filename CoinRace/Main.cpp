@@ -1,8 +1,7 @@
 #include <iostream>
 #include "Header.h"
 //Declaración de enums
-enum class charmap { PUNTO, ARROBA, DOLLAR, MAX };
-enum class dificultad { FACIL = 1, NORMAL, DIFICIL };
+
 
 //Definicion de la función "matriz", para crear un array dinámico
 void matriz(int numRows, int numColumns, char **map)
@@ -16,6 +15,7 @@ void matriz(int numRows, int numColumns, char **map)
 //class Map
 class Map
 {
+	
 	int Rows, Columns;
 	char **map;
 	Map::Map(dificultad A)
@@ -50,5 +50,12 @@ class Map
 	{
 		delete[]map;
 	}
+};
+
+class coinManager
+
+{
+	int coins;
+
 };
 
