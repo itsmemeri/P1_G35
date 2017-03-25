@@ -26,11 +26,11 @@ Mapa::Mapa(dificultad A)
 	}
 }
 //Función para cambiar el contenido de las celdas
-void ChangCont(int x, int y, char Zelda)
+void Mapa::ChangCont(int x, int y, char Zelda)
 {
 	mapa[x][y] = Zelda;
 }
-void printMap() {
+void Mapa::printMap() {
 	for (int i = 0; i < Rows; i++)
 	{
 		for (int j = 0; j < Columns; j++) {

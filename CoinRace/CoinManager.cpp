@@ -24,7 +24,6 @@ void colocaMonedas(int monedas)
 		{
 			i--;
 		}
-		
 	}
 }
 
@@ -39,6 +38,7 @@ void eliminarMonedas (int x, int y)
 	if (monedas == 0)
 	{
 		monedas = numMonedas(Rows, Columns);
+		colocaMonedas(monedas);
 	}
 }
 
