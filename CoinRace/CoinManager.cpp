@@ -1,16 +1,17 @@
 #include "CoinManager.h"
 #include "Mapa.h"
 #include<iostream>
+#include"Player.h"
 
-int monedas;
 
-int numMonedas(int Rows, int Columns)
+
+int CoinManager::numMonedas(int Rows, int Columns)
 {
 	monedas = ((rand() % 11 + 3) / 100)*(Rows*Columns);
 	return monedas;
 }
 
-void colocaMonedas(int monedas)
+void CoinManager::colocaMonedas(int monedas)
 {
 	for (int i = 0; i < monedas; i++) 
 	{
@@ -27,12 +28,13 @@ void colocaMonedas(int monedas)
 	}
 }
 
-void eliminarMonedas (int x, int y)
+void CoinManager::eliminarMonedas (int x, int y)
 {
 	if (mapa[x][y] == '$')
 	{
 		mapa[x][y] = '.';
 		monedas--;
+		puntos++;
 	}
 
 	if (monedas == 0)
