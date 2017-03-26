@@ -1,15 +1,12 @@
 #pragma once
-class Mapa
-{
-	Mapa(dificultad A)
-	{
-	}
-	void ChangCont(int x, int y, char Zelda)
-	{
-	}
+#include <iostream>
+#include "Player.h"
+#include "CoinManager.h"
+#include "Mapa.h"
+#include "Input.h"
 
+dificultad A;
+CoinManager coinmanager;
+Player player;
+Mapa map1;
 
-	~Mapa()
-	{
-	}
-};

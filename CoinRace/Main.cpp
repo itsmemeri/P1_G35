@@ -1,61 +1,24 @@
 #include <iostream>
 #include "Header.h"
-//Declaración de enums
+#include "Player.h"
+#include "CoinManager.h"
+#include "Mapa.h"
+#include "Input.h"
 
-
-//Definicion de la función "matriz", para crear un array dinámico
-void matriz(int numRows, int numColumns, char **map)
+void main()
 {
-	map = new char *[numRows];
-	for (int i = 0; i < numRows; i++)
-	{
-		map[i] = new char[numColumns];
-	}
-};
-//class Map
-class Map
-{
-	
-	int Rows, Columns;
-	char **map;
-	Map::Map(dificultad A)
-	{
-		Rows = 5 * static_cast<int>(A) + rand() % (10 * static_cast<int>(A) - 5 * static_cast<int>(A));
-		Columns = 5 * static_cast<int>(A) + rand() % (10 * static_cast<int>(A) - 5 * static_cast<int>(A));
-		matriz(Rows, Columns, map);
-		//Rellenar el array con puntos (mapa vacío)
-		for (int i = 0; i < Rows; i++)
-		{
-			for (int j = 0; j < Columns; j++)
-			{
-				map[i][j] = '.';
-			}
-		}
-	}
-	//Función para cambiar el contenido de las celdas
-	void chichinabo(int x, int y, char Zelda)
-	{
-		map[x][y] = Zelda;
-	}
-	void printMap() {
-		for (int i = 0; i < Rows; i++)
-		{
-			for (int j = 0; j < Columns; j++) {
-				std::cout << map[i][j];
-			}
-			std::cout << std::endl;
-		}
-	}
-	Map::~Map()
-	{
-		delete[]map;
-	}
-};
-
-class coinManager
-
-{
-	int coins;
-
-};
-
+	//Instanciar los objetos
+	CoinManager coinmanager;
+	Player player;
+	Mapa map(A);
+	//Pedir la dificultad al usuario
+	int dif;
+	dificultad A;
+	std::cout << "Escoge la dificultad entre 1, 2 o 3" << std::endl;
+	std::cin >> dif;
+	dif = static_cast <int>(A);
+	//Variable que determina el máximo de monedas
+	int maxmon = 30*dif + (rand() % (60 * dif - 30 * dif));
+	//Variable tipo Key
+	Input::Key key;
+}

@@ -1,7 +1,6 @@
 #include "Mapa.h"
 #include<iostream>
 
-
 void Mapa::matriz(int numRows, int numColumns, char **map)
 {
 	map = new char *[numRows];
@@ -30,6 +29,7 @@ void Mapa::ChangCont(int x, int y, char Zelda)
 {
 	mapa[x][y] = Zelda;
 }
+//Función para imprimir el mapa
 void Mapa::printMap() {
 	for (int i = 0; i < Rows; i++)
 	{

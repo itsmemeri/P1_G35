@@ -3,8 +3,6 @@
 #include<iostream>
 #include"Player.h"
 
-
-
 int CoinManager::numMonedas(int Rows, int Columns)
 {
 	monedas = ((rand() % 11 + 3) / 100)*(Rows*Columns);

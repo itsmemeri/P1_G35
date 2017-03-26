@@ -2,8 +2,8 @@
 #include "CoinManager.h"
 #include "Mapa.h"
 #include "Input.h"
+#include "Header.h"
 #include<iostream>
-
 
 
 void Player::mover(int x, int y, Input::Key tecla)
@@ -15,18 +15,38 @@ void Player::mover(int x, int y, Input::Key tecla)
 	case Input::Key::W: 
 		if (x < Rows) 
 		{ 
+			mapa[x][y] = '.';
 			x++; 
-			CoinManager::eliminarMonedas(x, y);
+			coinmanager.eliminarMonedas(x, y);
+			mapa[x][y] = '@';
 		}
 		break;
 	case Input::Key::A:
-		if (y > 0) { y--; }
+		if (y > 0) 
+		{ 
+			mapa[x][y] = '.';
+			y--;
+			coinmanager.eliminarMonedas(x, y);
+			mapa[x][y] = '@';
+		}
 		break;
 	case Input::Key::S:
-		if (x > 0) { x--; }
+		if (x > 0) 
+		{
+			mapa[x][y] = '.';
+			x--;
+			coinmanager.eliminarMonedas(x, y);
+			mapa[x][y] = '@';
+		}
 		break;
 	case Input::Key::D:
-		if (y < Rows) { y++; }
+		if (y < Rows) 
+		{
+			mapa[x][y] = '.';
+			y++;
+			coinmanager.eliminarMonedas(x, y);
+			mapa[x][y] = '@';
+		}
 		break;
 	case Input::Key::ENTER:
 		break;
@@ -35,13 +55,13 @@ void Player::mover(int x, int y, Input::Key tecla)
 	default:
 		break;
 	}
+	
 }
-
 
 
 Player::Player()
 {
-	
+	int x{ 0 }, y{ 0 };
 }
 
 
