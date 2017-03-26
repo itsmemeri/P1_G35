@@ -148,6 +148,7 @@
   <ItemGroup>
     <ClInclude Include="CoinManager.h" />
     <ClInclude Include="Header.h" />
+    <ClInclude Include="Input.h" />
     <ClInclude Include="Mapa.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>
