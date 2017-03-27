@@ -11,7 +11,8 @@ void main()
 	
 	//Instanciar los objetos
 	dificultad A;
-	CoinManager coinmanager;
+	int monedas = 0, puntos = 0, Rows=0, Columns=0;
+	CoinManager coinmanager (monedas, puntos, Rows, Columns);
 	Player player;
 	//Pedir la dificultad al usuario
 	int dif;
@@ -19,23 +20,7 @@ void main()
 	std::cin >> dif;
 	A = static_cast <dificultad> (dif);
 	Mapa map(A);
-	
-	/*switch (dif)
-	{
-	case 1:
-		A = dificultad::FACIL;
-		break;
-	case 2:
-		A = dificultad::NORMAL;
-		break;
-	case 3:
-		A = dificultad::DIFICIL;
-		break;
-	default:
-		break;
-	}*/
-	
-	//Variable que determina el máximo de monedas
+		//Variable que determina el máximo de monedas
 	int maxmon = 30*dif + (rand() % (60 * dif - 30 * dif));
 	//Variable tipo Key
 	Input::Key key;

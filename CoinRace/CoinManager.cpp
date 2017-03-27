@@ -4,9 +4,12 @@
 #include"Player.h"
 
 
-CoinManager::CoinManager()
+CoinManager::CoinManager(int monedes, int punts, int rows, int columns)
 {
-	puntos = 0;
+	puntos = punts;
+	monedas = monedes;
+	Rows = rows;
+	Columns = columns;
 }
 
 
