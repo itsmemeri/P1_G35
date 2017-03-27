@@ -1,4 +1,5 @@
 #include <cstdlib>
+#include <ctime>
 #include <iostream>
 #include "Player.h"
 #include "CoinManager.h"
@@ -8,32 +9,43 @@
 
 void main()
 {
+	//Para que el random varíe entre ejecuciones
+	srand(time(nullptr));
+	
+	//Pedir la dificultad al usuario
+	int dificultad;
+	std::cout << "Escoge la dificultad entre 1, 2 o 3" << std::endl;
+	std::cin >> dificultad;
+	Mapa mapa(dificultad);
 	
 	//Instanciar los objetos
-	dificultad A;
-	int monedas = 0, puntos = 0, Rows=0, Columns=0;
-	CoinManager coinmanager (monedas, puntos, Rows, Columns);
-	Player player;
-	//Pedir la dificultad al usuario
-	int dif;
-	std::cout << "Escoge la dificultad entre 1, 2 o 3" << std::endl;
-	std::cin >> dif;
-	A = static_cast <dificultad> (dif);
-	Mapa map(A);
-		//Variable que determina el máximo de monedas
-	int maxmon = 30*dif + (rand() % (60 * dif - 30 * dif));
+	CoinManager coinmanager(mapa);
+	coinmanager.colocaMonedas();
+	Player player (coinmanager, mapa);
+	
+	//Variable que determina el máximo de monedas
+	int maxPuntos = 30*dificultad + (rand() % (60 * dificultad - 30 * dificultad));
+	
 	//Variable tipo Key
 	Input::Key key;
+	std::cout << "Puntuación:" << coinmanager.puntos << std::endl;
+	std::cout << "Puntuacón a conseguir:" << maxPuntos << std::endl;
+	mapa.printMap();
+	
 	//Input
-	while (coinmanager.puntos > maxmon || player.endgame == false)
+	while (coinmanager.puntos > maxPuntos || player.endgame == false)
 	{
 		key = Input::getKey();
+		
 		//Update
 		if (key != Input::Key::NONE)
 		{
-			player.mover(player.x, player.y, key, coinmanager);
+			system("cls");
+			player.mover(player.x, player.y, key);
+			coinmanager.eliminarMonedas(player.x, player.y);
 		}
+		
 		//Draw
-		map.printMap();
+		mapa.printMap();
 	}
 }

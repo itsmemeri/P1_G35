@@ -4,18 +4,14 @@
 #include"Player.h"
 
 
-CoinManager::CoinManager(int monedes, int punts, int rows, int columns)
+CoinManager::CoinManager(Mapa &mapa) :mapa(mapa)
 {
-	puntos = punts;
-	monedas = monedes;
-	Rows = rows;
-	Columns = columns;
+	puntos = 0;
 }
 
 
 CoinManager::~CoinManager()
 {
-
 }
 
 
@@ -25,15 +21,15 @@ int CoinManager::numMonedas(int Rows, int Columns)
 	return monedas;
 }
 
-void CoinManager::colocaMonedas(int monedas)
+void CoinManager::colocaMonedas()
 {
 	for (int i = 0; i < monedas; i++) 
 	{
-		int x = rand() % Rows;
-		int y = rand() % Columns;
-		if (mapa[x][y] == '.') 
+		int x = rand() % mapa.Rows;
+		int y = rand() % mapa.Columns;
+		if (mapa.mapa[x][y] == '.') 
 		{
-			mapa[x][y] = '$';
+			mapa.mapa[x][y] = '$';
 		}
 		else 
 		{
@@ -44,16 +40,16 @@ void CoinManager::colocaMonedas(int monedas)
 
 void CoinManager::eliminarMonedas (int x, int y)
 {
-	if (mapa[x][y] == '$')
+	if (mapa.mapa[x][y] == '$')
 	{
-		mapa[x][y] = '.';
+		mapa.mapa[x][y] = '.';
 		monedas--;
 		puntos++;
 	}
 
 	if (monedas == 0)
 	{
-		monedas = numMonedas(Rows, Columns);
-		colocaMonedas(monedas);
+		monedas = numMonedas(mapa.Rows, mapa.Columns);
+		colocaMonedas();
 	}
 }

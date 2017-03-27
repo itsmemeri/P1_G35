@@ -1,15 +1,15 @@
 #include "Mapa.h"
 #include<iostream>
 
-Mapa::Mapa(dificultad A)
+Mapa::Mapa(int A)
 {
 	Rows = 5 * static_cast<int>(A) + rand() % (10 * static_cast<int>(A) - 5 * static_cast<int>(A));
 	Columns = 5 * static_cast<int>(A) + rand() % (10 * static_cast<int>(A) - 5 * static_cast<int>(A));
 	matriz(Rows, Columns, mapa);
 	//Rellenar el array con puntos (mapa vacío)
-	for (int i = 0; i < Rows; i++)
+	for (int i = 0; i < Rows-1; i++)
 	{
-		for (int j = 0; j < Columns; j++)
+		for (int j = 0; j < Columns-1; j++)
 		{
 			mapa[i][j] = '.';
 		}
@@ -21,12 +21,12 @@ Mapa::~Mapa()
 	delete[]mapa;
 }
 
-void Mapa::matriz(int numRows, int numColumns, char **map)
+void Mapa::matriz(int numRows, int numColumns, char **mapa)
 {
-	map = new char *[numRows];
+	mapa = new char *[numRows];
 	for (int i = 0; i < numRows; i++)
 	{
-		map[i] = new char[numColumns];
+		mapa[i] = new char[numColumns];
 	}
 };
 

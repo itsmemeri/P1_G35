@@ -5,10 +5,11 @@
 #include "Input.h"
 
 
-Player::Player()
+Player::Player(CoinManager &coinmanager, Mapa &mapa): coinmanager(coinmanager), mapa(mapa)
 {
 	int x{ 0 }, y{ 0 };
 	endgame = false;
+	mapa.ChangCont(x, y, '@');
 }
 
 
@@ -18,46 +19,46 @@ Player::~Player()
 }
 
 
-void Player::mover(int x, int y, Input::Key tecla, CoinManager coinmanager)
+void Player::mover(int x, int y, Input::Key key)
 {
-	switch (tecla)
+	switch (key)
 	{
 	case Input::Key::NONE:
 		break;
 	case Input::Key::W: 
-		if (x < Rows) 
+		if (x < mapa.Rows)
 		{ 
-			mapa[x][y] = '.';
+			mapa.mapa[x][y] = '.';
 			x++; 
 			coinmanager.eliminarMonedas(x, y);
-			mapa[x][y] = '@';
+			mapa.ChangCont(x, y, '@');
 		}
 		break;
 	case Input::Key::A:
 		if (y > 0) 
 		{ 
-			mapa[x][y] = '.';
+			mapa.mapa[x][y] = '.';
 			y--;
 			coinmanager.eliminarMonedas(x, y);
-			mapa[x][y] = '@';
+			mapa.ChangCont(x, y, '@');
 		}
 		break;
 	case Input::Key::S:
 		if (x > 0) 
 		{
-			mapa[x][y] = '.';
+			mapa.mapa[x][y] = '.';
 			x--;
 			coinmanager.eliminarMonedas(x, y);
-			mapa[x][y] = '@';
+			mapa.ChangCont(x, y, '@');
 		}
 		break;
 	case Input::Key::D:
-		if (y < Rows) 
+		if (y < mapa.Rows)
 		{
-			mapa[x][y] = '.';
+			mapa.mapa[x][y] = '.';
 			y++;
 			coinmanager.eliminarMonedas(x, y);
-			mapa[x][y] = '@';
+			mapa.ChangCont(x, y, '@');
 		}
 		break;
 	case Input::Key::ENTER:
