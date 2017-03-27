@@ -40,12 +40,9 @@ void CoinManager::colocaMonedas()
 
 void CoinManager::eliminarMonedas (int x, int y)
 {
-	if (mapa.mapa[x][y] == '$')
-	{
-		mapa.mapa[x][y] = '.';
+	
 		monedas--;
 		puntos++;
-	}
 
 	if (monedas == 0)
 	{

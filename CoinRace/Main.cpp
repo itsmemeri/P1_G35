@@ -20,7 +20,6 @@ void main()
 	
 	//Instanciar los objetos
 	CoinManager coinmanager(mapa);
-	coinmanager.colocaMonedas();
 	Player player (coinmanager, mapa);
 	
 	//Variable que determina el máximo de monedas
@@ -28,24 +27,21 @@ void main()
 	
 	//Variable tipo Key
 	Input::Key key;
-	std::cout << "Puntuación:" << coinmanager.puntos << std::endl;
-	std::cout << "Puntuacón a conseguir:" << maxPuntos << std::endl;
-	mapa.printMap();
 	
 	//Input
-	while (coinmanager.puntos > maxPuntos || player.endgame == false)
+	while (coinmanager.puntos < maxPuntos && player.endgame == false)
 	{
 		key = Input::getKey();
-		
 		//Update
 		if (key != Input::Key::NONE)
 		{
 			system("cls");
-			player.mover(player.x, player.y, key);
-			coinmanager.eliminarMonedas(player.x, player.y);
+			player.mover(key);
+			//Draw
+			coinmanager.colocaMonedas();
+			mapa.printMap();
+			std::cout << "Puntos:" << coinmanager.puntos << std::endl;
+			std::cout << "Puntos a conseguir:" << maxPuntos << std::endl;
 		}
-		
-		//Draw
-		mapa.printMap();
 	}
 }

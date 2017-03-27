@@ -11,7 +11,7 @@ public:
 
 	int x, y;
 	bool endgame;
-	void mover(int x, int y, Input::Key tecla);
+	void mover(Input::Key tecla);
 	Player(CoinManager &coinmanager, Mapa &mapa);
 	~Player();
 };
