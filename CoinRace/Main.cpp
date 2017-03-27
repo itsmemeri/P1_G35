@@ -11,14 +11,13 @@ void main()
 {
 	//Para que el random varíe entre ejecuciones
 	srand(time(nullptr));
-	
 	//Pedir la dificultad al usuario
 	int dificultad;
 	std::cout << "Escoge la dificultad entre 1, 2 o 3" << std::endl;
 	std::cin >> dificultad;
 
 	//Para asegurar que la dificultad se halla entre uno y tres.
-	while (dificultad<1 || dificultad>3)
+	while (dificultad!=1 && dificultad != 2 && dificultad != 3)
 	{
 		std::cout << "El valor debe estar entre 1, 2 o 3" << std::endl;
 		std::cin >> dificultad;
@@ -27,8 +26,9 @@ void main()
 	
 	//Instanciar los objetos
 	CoinManager coinmanager(mapa);
-	Player player (coinmanager, mapa);
 	coinmanager.colocaMonedas();
+	Player player (coinmanager, mapa);
+	
 	//Variable que determina el máximo de monedas
 	int maxPuntos = 30*dificultad + (rand() % (60 * dificultad - 30 * dificultad));
 	
@@ -45,7 +45,7 @@ void main()
 		if (key != Input::Key::NONE)
 		{
 			system("cls");
-			player.mover(key);
+			player.mover(key, player.puntos);
 			//Draw
 			mapa.printMap();
 			std::cout << "Puntos:" << player.puntos << std::endl;

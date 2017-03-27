@@ -6,7 +6,7 @@
 
 CoinManager::CoinManager(Mapa &mapa) :mapa(mapa)
 {
-	
+	int monedas = 0;
 }
 
 
@@ -15,14 +15,14 @@ CoinManager::~CoinManager()
 }
 
 
-int CoinManager::numMonedas(int Rows, int Columns)
+void CoinManager::numMonedas(int Rows, int Columns, int &monedas)
 {
 	monedas = ((rand() % 11 + 3) / 100)*(Rows*Columns);
-	return monedas;
 }
 
 void CoinManager::colocaMonedas()
 {
+	numMonedas(mapa.Rows, mapa.Columns, monedas);
 	for (int i = 0; i < monedas; i++) 
 	{
 		int x = rand() % mapa.Rows;
@@ -44,7 +44,7 @@ void CoinManager::eliminarMonedas (int x, int y)
 
 	if (monedas == 0)
 	{
-		monedas = numMonedas(mapa.Rows, mapa.Columns);
+		numMonedas(mapa.Rows, mapa.Columns, monedas);
 		colocaMonedas();
 	}
 }

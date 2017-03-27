@@ -18,7 +18,7 @@ Player::~Player()
 }
 
 
-void Player::mover(Input::Key key)
+void Player::mover(Input::Key key, int &puntos)
 {
 	mapa.mapa[x][y] = '.';
 
