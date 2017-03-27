@@ -16,6 +16,13 @@ void main()
 	int dificultad;
 	std::cout << "Escoge la dificultad entre 1, 2 o 3" << std::endl;
 	std::cin >> dificultad;
+
+	//Para asegurar que la dificultad se halla entre uno y tres.
+	while (dificultad<1 || dificultad>3)
+	{
+		std::cout << "El valor debe estar entre 1, 2 o 3" << std::endl;
+		std::cin >> dificultad;
+	}
 	Mapa mapa(dificultad);
 	
 	//Instanciar los objetos
