@@ -35,10 +35,10 @@ void main()
 	//Variable tipo Key
 	Input::Key key;
 	mapa.printMap();
-	std::cout << "Puntos:" << coinmanager.puntos << std::endl;
+	std::cout << "Puntos:" << player.puntos << std::endl;
 	std::cout << "Puntos a conseguir:" << maxPuntos << std::endl;
 	//Input
-	while (coinmanager.puntos < maxPuntos && player.endgame == false)
+	while (player.puntos < maxPuntos && player.endgame == false)
 	{
 		key = Input::getKey();
 		//Update
@@ -48,7 +48,7 @@ void main()
 			player.mover(key);
 			//Draw
 			mapa.printMap();
-			std::cout << "Puntos:" << coinmanager.puntos << std::endl;
+			std::cout << "Puntos:" << player.puntos << std::endl;
 			std::cout << "Puntos a conseguir:" << maxPuntos << std::endl;
 		}
 	}

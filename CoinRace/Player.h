@@ -9,7 +9,7 @@ public:
 	Mapa &mapa;
 	CoinManager &coinmanager;
 
-	int x, y;
+	int x, y, puntos;
 	bool endgame;
 	void mover(Input::Key tecla);
 	Player(CoinManager &coinmanager, Mapa &mapa);

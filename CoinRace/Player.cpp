@@ -5,10 +5,10 @@
 #include "Input.h"
 
 
-Player::Player(CoinManager &coinmanager, Mapa &mapa): coinmanager(coinmanager), mapa(mapa), x{ 0 }, y{ 0 }
+Player::Player(CoinManager &coinmanager, Mapa &mapa) : coinmanager(coinmanager), mapa(mapa), x{ 0 }, y{ 0 }, puntos { 0 }
 {
 	endgame = false;
-	mapa.ChangCont(x, y, '@');
+	mapa.ChangCont(x, y, '@');	
 }
 
 
@@ -33,6 +33,7 @@ void Player::mover(Input::Key key)
 			if (mapa.mapa[x][y] == '$')
 			{
 				coinmanager.eliminarMonedas(x, y);
+				puntos++;
 			}
 		}
 		break;
@@ -43,6 +44,7 @@ void Player::mover(Input::Key key)
 			if (mapa.mapa[x][y] == '$')
 			{
 				coinmanager.eliminarMonedas(x, y);
+				puntos++;
 			}
 		}
 		break;
@@ -52,6 +54,7 @@ void Player::mover(Input::Key key)
 			if (mapa.mapa[x][y] == '$')
 			{
 				coinmanager.eliminarMonedas(x, y);
+				puntos++;
 			}
 			x++;
 		}
@@ -63,6 +66,7 @@ void Player::mover(Input::Key key)
 			if (mapa.mapa[x][y] == '$')
 			{
 				coinmanager.eliminarMonedas(x, y);
+				puntos++;
 			}
 		}
 		break;

@@ -6,7 +6,7 @@
 
 CoinManager::CoinManager(Mapa &mapa) :mapa(mapa)
 {
-	puntos = 0;
+	
 }
 
 
@@ -40,9 +40,7 @@ void CoinManager::colocaMonedas()
 
 void CoinManager::eliminarMonedas (int x, int y)
 {
-	
-		monedas--;
-		puntos++;
+	monedas--;
 
 	if (monedas == 0)
 	{

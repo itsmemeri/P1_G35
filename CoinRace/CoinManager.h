@@ -8,7 +8,7 @@ class CoinManager
 
 public:
 	Mapa &mapa;
-	int monedas, puntos;
+	int monedas;
 	int numMonedas(int Rows, int Columns);
 	void colocaMonedas();
 	void eliminarMonedas(int x, int y);	
