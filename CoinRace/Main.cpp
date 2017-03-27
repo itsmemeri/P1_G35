@@ -21,4 +21,12 @@ void main()
 	int maxmon = 30*dif + (rand() % (60 * dif - 30 * dif));
 	//Variable tipo Key
 	Input::Key key;
+	//Update
+	while (player.puntos > maxmon || player.endgame == false)
+	{
+		if (key != Input::Key::NONE)
+		{
+
+		}
+	}
 }

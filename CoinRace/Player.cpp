@@ -51,6 +51,7 @@ void Player::mover(int x, int y, Input::Key tecla)
 	case Input::Key::ENTER:
 		break;
 	case Input::Key::ESC:
+		endgame = true;
 		break;
 	default:
 		break;
@@ -62,6 +63,7 @@ void Player::mover(int x, int y, Input::Key tecla)
 Player::Player()
 {
 	int x{ 0 }, y{ 0 };
+	endgame = false;
 }
 
 
