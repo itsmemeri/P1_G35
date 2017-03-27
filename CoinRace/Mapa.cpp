@@ -1,15 +1,6 @@
 #include "Mapa.h"
 #include<iostream>
 
-void Mapa::matriz(int numRows, int numColumns, char **map)
-{
-	map = new char *[numRows];
-	for (int i = 0; i < numRows; i++)
-	{
-		map[i] = new char[numColumns];
-	}
-};
-
 Mapa::Mapa(dificultad A)
 {
 	Rows = 5 * static_cast<int>(A) + rand() % (10 * static_cast<int>(A) - 5 * static_cast<int>(A));
@@ -24,6 +15,22 @@ Mapa::Mapa(dificultad A)
 		}
 	}
 }
+
+Mapa::~Mapa()
+{
+	delete[]mapa;
+}
+
+void Mapa::matriz(int numRows, int numColumns, char **map)
+{
+	map = new char *[numRows];
+	for (int i = 0; i < numRows; i++)
+	{
+		map[i] = new char[numColumns];
+	}
+};
+
+
 //Función para cambiar el contenido de las celdas
 void Mapa::ChangCont(int x, int y, char Zelda)
 {
@@ -41,7 +48,3 @@ void Mapa::printMap() {
 }
 
 
-Mapa::~Mapa()
-{
-	delete[]mapa;
-}

@@ -1,12 +1,24 @@
+#include<iostream>
 #include "Player.h"
 #include "CoinManager.h"
 #include "Mapa.h"
 #include "Input.h"
-#include "Header.h"
-#include<iostream>
 
 
-void Player::mover(int x, int y, Input::Key tecla)
+Player::Player()
+{
+	int x{ 0 }, y{ 0 };
+	endgame = false;
+}
+
+
+Player::~Player()
+{
+
+}
+
+
+void Player::mover(int x, int y, Input::Key tecla, CoinManager coinmanager)
 {
 	switch (tecla)
 	{
@@ -59,15 +71,3 @@ void Player::mover(int x, int y, Input::Key tecla)
 	
 }
 
-
-Player::Player()
-{
-	int x{ 0 }, y{ 0 };
-	endgame = false;
-}
-
-
-Player::~Player()
-{
-
-}

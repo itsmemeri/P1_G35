@@ -3,6 +3,19 @@
 #include<iostream>
 #include"Player.h"
 
+
+CoinManager::CoinManager()
+{
+	puntos = 0;
+}
+
+
+CoinManager::~CoinManager()
+{
+
+}
+
+
 int CoinManager::numMonedas(int Rows, int Columns)
 {
 	monedas = ((rand() % 11 + 3) / 100)*(Rows*Columns);
@@ -40,15 +53,4 @@ void CoinManager::eliminarMonedas (int x, int y)
 		monedas = numMonedas(Rows, Columns);
 		colocaMonedas(monedas);
 	}
-}
-
-CoinManager::CoinManager()
-{
-
-}
-
-
-CoinManager::~CoinManager()
-{
-	
 }
