@@ -26,6 +26,7 @@ void main()
 	
 	//Instanciar los objetos
 	CoinManager coinmanager(mapa);
+	coinmanager.numMonedas(mapa.Rows, mapa.Columns, coinmanager.monedas);
 	coinmanager.colocaMonedas();
 	Player player (coinmanager, mapa);
 	
